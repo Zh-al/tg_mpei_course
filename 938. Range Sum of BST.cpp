@@ -1,5 +1,3 @@
-//https://leetcode.com/problems/range-sum-of-bst/
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -15,8 +13,14 @@ public:
         int temp = 0;
         if (root == NULL)
             return 0;
-        if (root->val >= L && root->val <= R)
-            temp = root->val;
-        return (temp + rangeSumBST(root -> left, L, R) + rangeSumBST(root -> right, L, R));
+        int rval = root->val;
+        if (rval >= L) 
+            if (rval <= R)
+                return (rval + rangeSumBST(root -> left, L, R) + rangeSumBST(root -> right, L, R));
+            else
+                return (rangeSumBST(root -> left, L, R));
+        else
+            return (rangeSumBST(root -> right, L, R));
+        
     }
 };
