@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/multiply-strings/submissions/
+//https://leetcode.com/problems/multiply-strings/
 
 class Solution {
 public:
