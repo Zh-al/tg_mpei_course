@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/powx-n/
+//https://leetcode.com/problems/power-of-three/
 
 class Solution {
 public:
