@@ -1,0 +1,40 @@
+//https://leetcode.com/problems/first-bad-version/
+
+// Forward declaration of isBadVersion API.
+bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int left = 1;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (isBadVersion(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+
+int stringToInteger(string input) {
+    return stoi(input);
+}
+
+int main() {
+    string line;
+    while (getline(cin, line)) {
+        int n = stringToInteger(line);
+        getline(cin, line);
+        int bad = stringToInteger(line);
+        
+        int ret = Solution().firstBadVersion(n, bad);
+
+        string out = to_string(ret);
+        cout << out << endl;
+    }
+    return 0;
+}
