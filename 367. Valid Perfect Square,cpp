@@ -1,0 +1,37 @@
+//https://leetcode.com/problems/valid-perfect-square/
+
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        long sum = 0;
+        int i = 1;
+        while (sum < num) {
+                sum += i;
+                i += 2;
+            }
+            if (sum == num)
+                return true;
+        return false;
+    }
+};
+
+int stringToInteger(string input) {
+    return stoi(input);
+}
+
+string boolToString(bool input) {
+    return input ? "True" : "False";
+}
+
+int main() {
+    string line;
+    while (getline(cin, line)) {
+        int num = stringToInteger(line);
+        
+        bool ret = Solution().isPerfectSquare(num);
+
+        string out = boolToString(ret);
+        cout << out << endl;
+    }
+    return 0;
+}
